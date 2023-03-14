@@ -10,8 +10,12 @@ services:
       - .:/usr/src/app
     container_name: bank_app
     restart: on-failure
-    env_file:
-      - ./bank-app/.env
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: example
+      DB_NAME: bank_app
     
     ports:
         - 3000:3000
